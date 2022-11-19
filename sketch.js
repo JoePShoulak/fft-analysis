@@ -32,7 +32,11 @@ const playSong = (file) => {
 
 function windowResized() {
   resizeCanvas(innerWidth, innerHeight);
-  rectWidth = width / BAND_COUNT;
+  if (isLooping()) {
+    rectWidth = width / BAND_COUNT;
+  } else {
+    reset();
+  }
 }
 
 const reset = () => {
