@@ -30,6 +30,11 @@ const playSong = (file) => {
   loop();
 };
 
+function windowResized() {
+  resizeCanvas(innerWidth, innerHeight);
+  rectWidth = width / BAND_COUNT;
+}
+
 const reset = () => {
   noLoop();
   noStroke();
