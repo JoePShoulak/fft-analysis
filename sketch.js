@@ -63,8 +63,6 @@ function setup() {
   textSize(20);
 
   reset();
-
-  // song.play();
 }
 
 function draw() {
@@ -72,13 +70,14 @@ function draw() {
 
   background(20);
 
-  noStroke();
   const spectrum = fft.analyze();
+
   for (let i = 0; i < BAND_COUNT; i++) {
     const hue = map(i, 0, BAND_COUNT, 0, 1);
     const color = hslToRgb(hue, 1, 0.5);
-    fill(color);
     const vol = -map(spectrum[i], 0, 255, 0.1, height / 3);
+
+    fill(color);
     rect(i * rectWidth, height / 2 - vol, rectWidth, vol * 2);
   }
 }
